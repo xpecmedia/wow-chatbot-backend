@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Démo Chatbot "Haute Couture"</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-content">
+        <h1>Le Site de Wow Barcelona</h1>
+        <p>Du contenu de page pour démontrer l'effet...</p>
+    </div>
+
+    <!-- NOUVELLE STRUCTURE POUR LE LANCEUR -->
+    <div id="launcher-wrapper">
+        <div id="cta-bubble" class="hidden">Un expert est disponible pour votre audit</div>
+        <div id="chat-launcher">
+            <div class="icon-chat"></div>
+            <div class="icon-close"></div>
+        </div>
+    </div>
+
+    <!-- La fenêtre de chat reste la même -->
+    <div id="chat-container" class="hidden">
+        <div id="chat-header">
+            <h2>Audit Gratuit</h2>
+            <p>Posez vos questions et lancez votre audit !</p>
+        </div>
+        <ul id="message-list">
+            <!-- Les messages apparaîtront ici -->
+        </ul>
+        <form id="chat-form">
+            <input type="text" id="message-input" placeholder="Écrivez votre message..." autocomplete="off" required>
+            <button type="submit" aria-label="Envoyer"></button>
+        </form>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
