@@ -47,6 +47,8 @@ function addMessage(content, type) {
 
 addMessage("Bonjour. Bienvenue sur l'espace dédié à votre demande d'audit gratuit. Je suis à votre disposition pour répondre à vos questions et vous accompagner dans votre démarche.", 'bot');
 
+let responseTimeout;
+
 form.addEventListener('submit', function(event) {
     event.preventDefault();
     const messageText = input.value.trim();
@@ -56,9 +58,19 @@ form.addEventListener('submit', function(event) {
     socket.emit('user message', messageText);
     input.value = '';
     showTypingIndicator();
+
+    clearTimeout(responseTimeout);
+    responseTimeout = setTimeout(() => {
+        if (typingIndicatorElement) {
+            hideTypingIndicator();
+            addMessage("Le serveur de démonstration est en train de sortir de veille (cela peut prendre jusqu'à 60 secondes). Merci de votre patience !", 'bot');
+            showTypingIndicator();
+        }
+    }, 12000);
 });
 
 socket.on('bot message', (msg) => {
+    clearTimeout(responseTimeout);
     hideTypingIndicator();
     addMessage(msg, 'bot');
 });
