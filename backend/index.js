@@ -76,7 +76,7 @@ io.on('connection', (socket) => {
 
     try {
       const completion = await openai.chat.completions.create({
-        model: "gpt-4-turbo-preview", // Les modèles 'turbo' sont meilleurs pour le function calling
+        model: "gpt-4o-mini", // Les modèles 'turbo' sont meilleurs pour le function calling
         messages: history,
         tools: tools,
         tool_choice: "auto",
@@ -115,7 +115,7 @@ io.on('connection', (socket) => {
 
         // On refait un appel à l'IA pour qu'elle génère une réponse textuelle finale
         const finalCompletion = await openai.chat.completions.create({
-            model: "gpt-4-turbo-preview",
+            model: "gpt-4o-mini",
             messages: history,
         });
         const finalResponse = finalCompletion.choices[0].message.content;
