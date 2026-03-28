@@ -45,7 +45,7 @@ function addMessage(content, type) {
     return li;
 }
 
-addMessage("Bonjour ! Je suis Wow-Bot. Prêt à lancer votre audit gratuit ?", 'bot');
+addMessage("Bonjour. Bienvenue sur l'espace dédié à votre demande d'audit gratuit. Je suis à votre disposition pour répondre à vos questions et vous accompagner dans votre démarche.", 'bot');
 
 form.addEventListener('submit', function(event) {
     event.preventDefault();
